@@ -66,18 +66,19 @@ Whenever new code is pushed to GitHub, Jenkins automatically triggers the pipeli
                                     ↓
                               🌐 Application
 
-| Technology | Purpose                 |
-| ---------- | ----------------------- |
-| AWS EC2    | Jenkins Server          |
-| AWS EKS    | Kubernetes Cluster      |
-| Jenkins    | CI/CD Automation        |
-| Docker     | Containerization        |
-| Docker Hub | Container Registry      |
-| Kubernetes | Container Orchestration |
-| GitHub     | Source Code Management  |
-| Linux      | Server Operating System |
-| kubectl    | Kubernetes CLI          |
-| Git        | Version Control         |
+
+🛠️ Technologies Used
+Technology	Purpose
+AWS EC2	Jenkins Server
+AWS EKS	Kubernetes Cluster
+Jenkins	CI/CD Automation
+Docker	Containerization
+Docker Hub	Container Registry
+Kubernetes	Container Orchestration
+GitHub	Source Code Management
+Linux	Server Operating System
+kubectl	Kubernetes CLI
+Git	Version Control
 
 
 End-to-End-CI-CD-Pipeline/
