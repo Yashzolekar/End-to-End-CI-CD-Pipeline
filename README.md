@@ -67,7 +67,7 @@ Whenever new code is pushed to GitHub, Jenkins can automatically trigger the pip
                                     ↓
                               🌐 Application
 
-```text
+---
 
 🛠️ Technologies Used
 
