@@ -66,7 +66,7 @@ Whenever new code is pushed to GitHub, Jenkins automatically triggers the pipeli
                                     ↓
                               🌐 Application
 
-
+---
 🛠️ Technologies Used
 Technology	Purpose
 AWS EC2	Jenkins Server
