@@ -30,7 +30,6 @@ Whenever new code is pushed to GitHub, Jenkins can automatically trigger the pip
 
 # 🏗️ Architecture Overview
 
-```text
                     👨‍💻 Developer
                          |
                          | Git Push
@@ -68,8 +67,8 @@ Whenever new code is pushed to GitHub, Jenkins can automatically trigger the pip
                               🌐 Application
 
 ---
+## 🛠️ Technologies Used
 
-🛠️ Technologies Used
 
 | Technology    | Purpose                 |
 | ------------- | ----------------------- |
@@ -84,3 +83,4 @@ Whenever new code is pushed to GitHub, Jenkins can automatically trigger the pip
 | ⚙️ kubectl    | Kubernetes CLI          |
 | 🔀 Git        | Version Control         |
 | ☕ Maven       | Application Build Tool  |
+
