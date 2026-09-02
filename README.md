@@ -193,3 +193,26 @@ Verify:
 ```text
 git --version
 ```
+
+Step 6 — Install Docker
+```text
+sudo apt install docker.io -y
+```
+Start Docker:
+```text
+sudo systemctl enable docker
+sudo systemctl start docker
+```
+Check:
+```text
+docker --version
+```
+Allow Jenkins to use Docker:
+```text
+sudo usermod -aG docker jenkins
+```
+Restart Jenkins:
+```text
+sudo systemctl restart jenkins
+```
+You may need to log out and back in for group membership changes to take effect.
