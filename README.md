@@ -160,3 +160,28 @@ Verify:
 ```text
 java -version
 ```
+Step 4 — Install Jenkins
+
+Add the Jenkins repository and install Jenkins.
+```text
+sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+```
+```text
+echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | \
+  sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+```
+```text
+sudo apt update
+sudo apt install jenkins -y
+```
+Start Jenkins:
+```text
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+```
+Check status:
+```text
+sudo systemctl status jenkins
+```
