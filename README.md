@@ -84,3 +84,20 @@ Whenever new code is pushed to GitHub, Jenkins can automatically trigger the pip
 | 🔀 Git        | Version Control         |
 | ☕ Maven       | Application Build Tool  |
 
+## 🛠️ Project Structure
+```text
+End-to-End-CI-CD-Pipeline/
+│
+├── src/
+│   └── main/
+│       └── ...
+│
+├── k8s/
+│   ├── deployment.yaml
+│   └── service.yaml
+│
+├── Dockerfile
+├── Jenkinsfile
+├── pom.xml
+├── .gitignore
+└── README.md
