@@ -108,13 +108,15 @@ End-to-End-CI-CD-Pipeline/
 
 ##✅ Prerequisites
 
+# ✅ Prerequisites
+
 Before starting this project, make sure you have:
 
-AWS Account
-GitHub Account
-Docker Hub Account
-Basic Linux knowledge
-Basic Git knowledge
-Basic Docker knowledge
-Basic Kubernetes knowledge
-AWS IAM permissions
+1. ☁️ **AWS Account**
+2. 🐙 **GitHub Account**
+3. 🐳 **Docker Hub Account**
+4. 🐧 **Basic Linux Knowledge**
+5. 🔀 **Basic Git Knowledge**
+6. 🐳 **Basic Docker Knowledge**
+7. ☸️ **Basic Kubernetes Knowledge**
+8. 🔐 **AWS IAM Permissions**
