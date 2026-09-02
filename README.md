@@ -216,3 +216,28 @@ Restart Jenkins:
 sudo systemctl restart jenkins
 ```
 You may need to log out and back in for group membership changes to take effect.
+
+Step 7 — Install Maven
+
+If your application uses Maven:
+
+```text
+sudo apt install maven -y
+```
+Verify:
+```text
+mvn -version
+```
+
+Step 8 — Install kubectl
+
+Install the Kubernetes command-line tool.
+```text
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x kubectl
+sudo mv kubectl /usr/local/bin/
+```
+Verify:
+```text
+kubectl version --client
+```
