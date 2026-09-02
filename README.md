@@ -84,7 +84,9 @@ Whenever new code is pushed to GitHub, Jenkins can automatically trigger the pip
 | 🔀 Git        | Version Control         |
 | ☕ Maven       | Application Build Tool  |
 
-## 🛠️ Project Structure
+
+# 🛠️ Project Structure
+
 ```text
 End-to-End-CI-CD-Pipeline/
 │
@@ -104,5 +106,15 @@ End-to-End-CI-CD-Pipeline/
 
 ---
 
-
 ##✅ Prerequisites
+
+Before starting this project, make sure you have:
+
+AWS Account
+GitHub Account
+Docker Hub Account
+Basic Linux knowledge
+Basic Git knowledge
+Basic Docker knowledge
+Basic Kubernetes knowledge
+AWS IAM permissions
