@@ -106,8 +106,6 @@ End-to-End-CI-CD-Pipeline/
 
 ```
 
-##✅ Prerequisites
-
 # ✅ Prerequisites
 
 Before starting this project, make sure you have:
@@ -120,3 +118,31 @@ Before starting this project, make sure you have:
 6. 🐳 **Basic Docker Knowledge**
 7. ☸️ **Basic Kubernetes Knowledge**
 8. 🔐 **AWS IAM Permissions**
+
+# 🚀 Setup Guide
+Step 1 — Launch Jenkins EC2 Instance
+
+Launch an EC2 instance in AWS.
+
+Recommended:
+
+```text
+AMI: Ubuntu
+Instance Type: t3.medium
+Storage: 20 GB+
+```
+Configure the Security Group.
+
+Allow:
+```text
+SSH     → TCP 22
+Jenkins → TCP 8080
+HTTP    → TCP 80
+```
+For production environments, restrict access to trusted IP addresses instead of allowing unrestricted access.
+
+Connect to the EC2 instance:
+```text
+ssh -i "your-key.pem" ubuntu@YOUR_EC2_PUBLIC_IP
+```
+
