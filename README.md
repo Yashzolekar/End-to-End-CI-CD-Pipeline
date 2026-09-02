@@ -687,3 +687,107 @@ AWS EKS
 Application Updated 🚀
 ```
 
+
+
+
+📊 Useful Commands
+Check Jenkins
+```text
+sudo systemctl status jenkins
+```
+Check Docker
+```text
+docker ps
+```
+Check Kubernetes Nodes
+```text
+kubectl get nodes
+```
+Check Pods
+```text
+kubectl get pods
+```
+Check Services
+```text
+kubectl get svc
+```
+Check Deployment
+```text
+kubectl get deployment
+```
+View Pod Logs
+```text
+kubectl logs POD_NAME
+```
+
+
+
+🧹 Cleanup
+
+To remove the Kubernetes application:
+```text
+kubectl delete -f k8s/
+```
+To delete the EKS cluster:
+```text
+AWS Console
+    ↓
+EKS
+    ↓
+Clusters
+    ↓
+Delete
+```
+
+Also remove unused:
+```text
+EC2 instances
+Load Balancers
+EKS node groups
+EKS cluster
+Elastic IPs
+Other billable AWS resources
+```
+⚠️ Always check your AWS resources after completing the project to avoid unexpected charges.
+
+
+# 🎯 Project Outcomes
+
+Through this project, I practiced:
+
+- ✅ Git & GitHub
+- ✅ Jenkins CI/CD
+- ✅ Docker
+- ✅ Docker Hub
+- ✅ Kubernetes
+- ✅ Amazon EKS
+- ✅ AWS EC2
+- ✅ IAM
+- ✅ Linux
+- ✅ CI/CD Automation
+- ✅ Container Deployment
+- ✅ Kubernetes Application Management
+
+---
+
+# 🌐 Portfolio
+
+🚀 **Portfolio:**  
+https://yashz-portfolio.vercel.app/
+
+---
+
+# 🤝 Connect With Me
+
+💼 **LinkedIn:**  
+https://www.linkedin.com/in/yash-zolekar-8b9366270
+
+📧 **Email:**  
+yashzolekar2003@gmail.com
+
+⭐ Thanks for Visiting!
+
+If you found this project useful, please consider giving the repository a ⭐ star.
+
+<p align="center"> 🚀 <b>Cloud • DevOps • Automation • Docker • Kubernetes • AWS</b> ☁️ </p> ```⭐ Thanks for Visiting!
+
