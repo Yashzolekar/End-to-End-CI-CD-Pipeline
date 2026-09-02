@@ -104,7 +104,7 @@ End-to-End-CI-CD-Pipeline/
 ├── .gitignore
 └── README.md
 
----
+```
 
 ##✅ Prerequisites
 
