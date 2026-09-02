@@ -615,3 +615,75 @@ Script Path:
 Jenkinsfile
 ```
 Save the job.
+
+🚀 Step 19 — Run the Pipeline
+
+Click:
+```text
+Build Now
+```
+The pipeline should execute:
+```text
+Checkout
+   ↓
+Build
+   ↓
+Docker Build
+   ↓
+Docker Push
+   ↓
+Kubernetes Deployment
+```
+
+🔍 Step 20 — Verify Kubernetes Deployment
+
+Check pods:
+```text
+kubectl get pods
+```
+Check deployment:
+```text
+kubectl get deployments
+```
+Check service:
+```text
+kubectl get svc
+```
+Example:
+```text
+NAME               TYPE           EXTERNAL-IP
+cicd-app-service   LoadBalancer   xxx.amazonaws.com
+```
+Copy the LoadBalancer address and open it in your browser.
+```text
+http://EXTERNAL-LOAD-BALANCER
+```
+🎉 Your application is now deployed
+
+🔄 CI/CD Workflow
+
+Whenever the developer pushes new code:
+```text
+Developer
+    ↓
+GitHub Push
+    ↓
+Jenkins Trigger
+    ↓
+Checkout Code
+    ↓
+Build Application
+    ↓
+Run Tests
+    ↓
+Build Docker Image
+    ↓
+Push Image to Docker Hub
+    ↓
+Deploy to Kubernetes
+    ↓
+AWS EKS
+    ↓
+Application Updated 🚀
+```
+
