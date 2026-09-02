@@ -572,3 +572,46 @@ pipeline {
 ```
 ⚠️ Replace the username, repository name, Docker image name, AWS region, and Jenkins credential IDs with your own values.
 
+🔗 Step 18 — Connect GitHub to Jenkins
+
+Open Jenkins:
+```text
+http://YOUR_EC2_PUBLIC_IP:8080
+```
+Create a new Pipeline job.
+
+Select:
+```text
+New Item
+ ↓
+Pipeline
+```
+
+Under:
+```text
+Pipeline
+ ↓
+Definition
+```
+Select:
+```text
+Pipeline script from SCM
+```
+Choose:
+```text
+SCM:
+Git
+```
+Add your GitHub repository:
+```text
+https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+```
+Branch:
+```text
+*/main
+```
+Script Path:
+```text
+Jenkinsfile
+```
+Save the job.
