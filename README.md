@@ -185,3 +185,11 @@ Check status:
 ```text
 sudo systemctl status jenkins
 ```
+Step 5 — Install Git
+```text
+sudo apt install git -y
+```
+Verify:
+```text
+git --version
+```
