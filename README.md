@@ -318,3 +318,93 @@ Role name:
 eks-node-role
 ```
 Use the current AWS-recommended policies and permissions for your EKS configuration.
+☸️ Step 11 — Create EKS Cluster
+
+Go to:
+```text
+AWS Console
+     ↓
+EKS
+     ↓
+Create Cluster
+```
+Configure:
+```text
+Cluster Name:
+cicd-eks-cluster
+
+Kubernetes:
+Select a currently supported version
+
+Cluster IAM Role:
+eks-cluster-role
+
+Networking:
+Select your VPC and subnets
+```
+Create the cluster.
+
+Wait until the cluster becomes:
+```text
+ACTIVE
+```
+Step 12 — Create EKS Node Group
+
+Open:
+```text
+EKS
+ ↓
+Your Cluster
+ ↓
+Compute
+ ↓
+Add Node Group
+```
+Example:
+```text
+Node Group Name:
+eks-node-group
+
+IAM Role:
+eks-node-role
+
+AMI:
+Amazon Linux
+
+Instance Type:
+t3.medium
+```
+Configure the desired capacity according to your AWS budget.
+
+Create the node group.
+
+Wait until the nodes become ready
+
+
+Step 13 — Configure kubectl
+
+On the Jenkins server, configure access to your EKS cluster.
+
+Install/configure AWS CLI if required, then run:
+```text
+aws eks update-kubeconfig \
+  --region YOUR_AWS_REGION \
+  --name cicd-eks-cluster
+```
+Example:
+```text
+aws eks update-kubeconfig \
+  --region ap-southeast-2 \
+  --name cicd-eks-cluster
+```
+
+Check the connection:
+```text
+kubectl get nodes
+```
+Expected:
+```text
+NAME              STATUS   ROLES
+ip-xxx-xxx-xxx    Ready    <none>
+ip-xxx-xxx-xxx    Ready    <none>
+```
