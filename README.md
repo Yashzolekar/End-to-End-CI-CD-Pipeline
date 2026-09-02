@@ -408,3 +408,167 @@ NAME              STATUS   ROLES
 ip-xxx-xxx-xxx    Ready    <none>
 ip-xxx-xxx-xxx    Ready    <none>
 ```
+🐳 Step 14 — Create Dockerfile
+
+Example:
+```text
+FROM eclipse-temurin:17-jdk
+
+WORKDIR /app
+
+COPY target/*.jar app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
+
+```
+
+☸️ Step 15 — Create Kubernetes Deployment
+
+Create:
+```text
+k8s/deployment.yaml
+```
+Example:
+```text
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: cicd-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: cicd-app
+
+  template:
+    metadata:
+      labels:
+        app: cicd-app
+
+    spec:
+      containers:
+        - name: cicd-app
+
+          image: YOUR_DOCKER_USERNAME/cicd-app:latest
+
+          ports:
+            - containerPort: 8080
+```
+
+🌐 Step 16 — Create Kubernetes Service
+
+Create:
+```text
+k8s/service.yaml
+
+```
+```text
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: cicd-app-service
+
+spec:
+  type: LoadBalancer
+
+  selector:
+    app: cicd-app
+
+  ports:
+    - port: 80
+      targetPort: 8080
+```
+
+🔧 Step 17 — Create Jenkinsfile
+
+Create:
+```text
+Jenkinsfile
+```
+Example:
+```text
+pipeline {
+
+    agent any
+
+    environment {
+        DOCKER_IMAGE = "YOUR_DOCKER_USERNAME/cicd-app"
+    }
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean package -DskipTests'
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t ${DOCKER_IMAGE}:${BUILD_NUMBER} .'
+            }
+        }
+
+        stage('Docker Push') {
+            steps {
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'dockerhub-credentials',
+                        usernameVariable: 'DOCKER_USERNAME',
+                        passwordVariable: 'DOCKER_PASSWORD'
+                    )
+                ]) {
+                    sh '''
+                        echo "$DOCKER_PASSWORD" | docker login \
+                        -u "$DOCKER_USERNAME" \
+                        --password-stdin
+
+                        docker push ${DOCKER_IMAGE}:${BUILD_NUMBER}
+
+                        docker tag ${DOCKER_IMAGE}:${BUILD_NUMBER} \
+                        ${DOCKER_IMAGE}:latest
+
+                        docker push ${DOCKER_IMAGE}:latest
+                    '''
+                }
+            }
+        }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                sh '''
+                    kubectl apply -f k8s/deployment.yaml
+                    kubectl apply -f k8s/service.yaml
+
+                    kubectl rollout status deployment/cicd-app
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            echo '🚀 Deployment Successful!'
+        }
+
+        failure {
+            echo '❌ Pipeline Failed!'
+        }
+    }
+}
+```
+⚠️ Replace the username, repository name, Docker image name, AWS region, and Jenkins credential IDs with your own values.
+
