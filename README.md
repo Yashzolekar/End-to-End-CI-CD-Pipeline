@@ -241,3 +241,80 @@ Verify:
 ```text
 kubectl version --client
 ```
+
+🔐 Step 9 — Configure Docker Hub
+
+Create a Docker Hub account.
+
+Then create a repository, for example:
+```text
+yashzolekar/cicd-app
+```
+
+In Jenkins:
+```text
+Dashboard
+   ↓
+Manage Jenkins
+   ↓
+Credentials
+   ↓
+Global
+   ↓
+Add Credentials
+```
+
+Add Docker Hub credentials.
+
+Use:
+```text
+Kind: Username with password
+Username: YOUR_DOCKER_USERNAME
+Password: YOUR_DOCKER_TOKEN
+ID: dockerhub-credentials
+```
+
+Use a Docker Hub access token rather than storing your account password in Jenkins.
+
+
+☁️ Step 10 — Create IAM Roles for EKS
+
+Create the required IAM roles for Amazon EKS.
+
+A. EKS Cluster Role
+
+Trusted entity:
+```text
+AWS Service → EKS
+```
+Attach the appropriate EKS cluster policy.
+
+Example:
+```text
+AmazonEKSClusterPolicy
+```
+Role name:
+```text
+eks-cluster-role
+```
+
+
+B. EKS Node Group Role
+
+Trusted entity:
+```text
+AWS Service → EC2
+```
+Attach the required worker-node policies.
+
+Common policies include:
+```text
+AmazonEKSWorkerNodePolicy
+AmazonEC2ContainerRegistryPullOnly
+AmazonEKS_CNI_Policy
+```
+Role name:
+```text
+eks-node-role
+```
+Use the current AWS-recommended policies and permissions for your EKS configuration.
