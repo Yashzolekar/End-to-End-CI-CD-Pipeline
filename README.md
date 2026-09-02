@@ -145,4 +145,18 @@ Connect to the EC2 instance:
 ```text
 ssh -i "your-key.pem" ubuntu@YOUR_EC2_PUBLIC_IP
 ```
+Step 2 — Update Ubuntu
+```text
+sudo apt update
+sudo apt upgrade -y
+```
+Step 3 — Install Java
 
+Jenkins requires Java.
+```text
+sudo apt install fontconfig openjdk-17-jre -y
+```
+Verify:
+```text
+java -version
+```
